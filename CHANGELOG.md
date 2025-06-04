@@ -1,0 +1,78 @@
+## 🚀 v0.1.9 (2025-06-04)
+
+
+### 🔧 Misc
+
+- **fix repo url, add author name** ([`7de7a78`](dojo-messaging/commit/7de7a783d502da3fecc3c3eba96a96da008a3831)) by @jarvis8x7b
+
+## 🚀 v0.1.8 (2025-06-04)
+
+
+### 🐛 Bug Fixes
+
+- **remove scope check from releaserc** ([`bd56c9b`](dojo-messaging/commit/bd56c9b79e9e05204ca488440be5ef2677424d5c))
+
+## 🚀 v0.1.7 (2025-06-04)
+
+## 🚀 v0.1.6 (2025-06-04)
+
+
+### fix
+
+- **undefined var** ([`fb741e5`](dojo-messaging/commit/fb741e5fa602d0d8f095361e40f69ab2bfe91027))
+
+### refactor
+
+- **format message using releaserc.js** ([`171ac4d`](dojo-messaging/commit/171ac4d857454d4ad7e3265a172750a7fa29739a))
+
+## [0.1.5](https://github.com/tensorplex-labs/dojo-messaging/compare/v0.1.4...v0.1.5) (2025-06-04)
+
+### 🐛 Bug Fixes
+
+* fix: repository url for hashes ([fd11cab91049eb481ba5df505984286aff8d591c](https://github.com/tensorplex-labs/dojo-messaging/commit/fd11cab91049eb481ba5df505984286aff8d591c)) by @jarvis8x7b
+
+## [0.1.4](https://github.com/tensorplex-labs/dojo-messaging/compare/v0.1.3...v0.1.4) (2025-06-04)
+
+### 🔧 Misc
+
+* chore: configure releaserc ([e9c1deead238eec863367472125202d3691dafd9](/commit/e9c1deead238eec863367472125202d3691dafd9)) by jarvis8x7b |
+
+## [0.1.3](https://github.com/tensorplex-labs/dojo-messaging/compare/v0.1.2...v0.1.3) (2025-06-04)
+
+### 🔧 Misc
+
+* chore: configure releaserc ([4053a3dc042be2961b46feae988432228829f087](///commit/4053a3dc042be2961b46feae988432228829f087))
+
+## [0.1.2](https://github.com/tensorplex-labs/dojo-messaging/compare/v0.1.1...v0.1.2) (2025-06-04)
+
+## [0.1.1](https://github.com/tensorplex-labs/dojo-messaging/compare/v0.1.0...v0.1.1) (2025-06-04)
+
+### Reverts
+
+* Revert "perf: session handling" ([c5f58b06fc5fe0be7c4efc210818ba3e90923453](/commit/c5f58b06fc5fe0be7c4efc210818ba3e90923453))
+
+# CHANGELOG
+
+## v0.1.0 (2025-06-04)
+
+### Chore
+
+* chore: specify main ([`ceb9e8a`](https://github.com/tensorplex-labs/dojo-messaging/commit/ceb9e8ae3b5dd6447aac9b6252d0729ffe46e6c3))
+
+* chore: loosen kami-client requirements ([`1c86056`](https://github.com/tensorplex-labs/dojo-messaging/commit/1c86056462e3b47e17c1c283bfa78faf68dd22e4))
+
+* chore: shift README ([`705c8e3`](https://github.com/tensorplex-labs/dojo-messaging/commit/705c8e33cc0c66a9f6613f09f5afa4ce2333db04))
+
+* chore: add gitignore ([`9767482`](https://github.com/tensorplex-labs/dojo-messaging/commit/976748274ab54cc4b4a26a3fd2246fd3650136f2))
+
+### Ci
+
+* ci: add semantic release ([`64294f1`](https://github.com/tensorplex-labs/dojo-messaging/commit/64294f1be2443ce79a40bd3f1ad88525e8ed1c10))
+
+### Feature
+
+* feat: add messaging layer ([`515471e`](https://github.com/tensorplex-labs/dojo-messaging/commit/515471e903b19eac05e6b2a69a937f63c2b2d4b4))
+
+### Performance
+
+* perf: session handling ([`7224392`](https://github.com/tensorplex-labs/dojo-messaging/commit/72243923c908b805ef3613ff635f4be543fab0f6))
