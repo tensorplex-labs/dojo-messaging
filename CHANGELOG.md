@@ -1,3 +1,10 @@
+## 🚀 v1.0.2 (2025-06-04)
+
+
+### 🔧 Misc
+
+- **use tagged version for kami client** ([`f164ab1`](dojo-messaging/commit/f164ab1f4bbd47833f894ee9a49749b5bdf99d0e)) @jarvis8x7b
+
 ## 🚀 v1.0.1 (2025-06-04)
 
 
