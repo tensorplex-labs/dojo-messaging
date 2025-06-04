@@ -18,7 +18,7 @@ dependencies = [
     "tenacity~=8.5.0",
     "uvicorn~=0.22.0",
     "zstandard~=0.23.0",
-    "kami-client @ git+https://github.com/tensorplex-labs/kami-client"
+    "kami-client @ git+https://github.com/tensorplex-labs/kami-client@main"
 ]
 
 [project.optional-dependencies]
