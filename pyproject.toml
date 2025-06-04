@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=78.1.1", "wheel", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dojo-messaging"
+version = "0.1.0"
+description = "Messaging utilities for dojo applications"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiohttp~=3.10.11",
+    "httpx~=0.27.0",
+    "loguru~=0.7.2",
+    "orjson~=3.10.16",
+    "pydantic~=2.8.2",
+    "python-dotenv",
+    "tenacity~=8.5.0",
+    "uvicorn~=0.22.0",
+    "zstandard~=0.23.0",
+    "kami-client @ git+https://github.com/tensorplex-labs/kami-client@5bf290701a6eb6e30b2acae1c37ea7d31db7e291"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pylint",
+    "ruff",
+    "pyright"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["messaging*"]
+
