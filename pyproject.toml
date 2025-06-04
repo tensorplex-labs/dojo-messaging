@@ -32,3 +32,8 @@ dev = [
 where = ["."]
 include = ["messaging*"]
 
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+build_command = "pip install build && python -m build"
+commit_message = "chore(release): {version}"
+
