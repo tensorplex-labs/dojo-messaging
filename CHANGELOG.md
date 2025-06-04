@@ -1,3 +1,10 @@
+## 🚀 v1.0.1 (2025-06-04)
+
+
+### 🔧 Misc
+
+- **add readme** ([`37d4ec4`](dojo-messaging/commit/37d4ec42299fde51218b317ffe3358c1cbd7cae3)) @jarvis8x7b
+
 ## 🚀 v1.0.0 (2025-06-04)
 
 
