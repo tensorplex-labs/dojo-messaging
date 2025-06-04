@@ -5,7 +5,6 @@ from typing import Any, Sequence
 import aiohttp
 import orjson
 import zstandard as zstd
-from aiohttp.client import ClientSession
 from kami import KamiClient
 from loguru import logger
 from orjson import JSONDecodeError
@@ -26,10 +25,12 @@ from .types import (
     PydanticModel,
     StdResponse,
 )
-from .utils import encode_body
 
 
-def get_client(conn_limit: int = None, limit_per_host: int = None) -> ClientSession:  # type: ignore[assignment]
+def get_client(
+    conn_limit: int = None,  # pyright: ignore[reportArgumentType]
+    limit_per_host: int = None,  # pyright: ignore[reportArgumentType]
+) -> aiohttp.ClientSession:
     if not conn_limit:
         conn_limit = 256
     if not limit_per_host:
@@ -41,6 +42,7 @@ def get_client(conn_limit: int = None, limit_per_host: int = None) -> ClientSess
             limit=conn_limit,
             limit_per_host=limit_per_host,
             enable_cleanup_closed=True,
+            use_dns_cache=False,
         )
     )
 
@@ -69,11 +71,11 @@ class Client:
     def __init__(
         self,
         hotkey: str,
-        session: ClientSession | None = None,
+        session: aiohttp.ClientSession | None = None,
     ) -> None:
         self._kami = KamiClient()
         self._hotkey = hotkey
-        self._session: ClientSession = session or get_client()
+        self._session: aiohttp.ClientSession | None = session or get_client()
         self._compression_headers = {
             "content-encoding": "zstd",
             "accept-encoding": "zstd",
@@ -102,9 +104,28 @@ class Client:
         return headers
 
     async def _ensure_session(self):
-        """Recreate session if it's closed"""
-        if not self._session or self._session.closed:
-            self._session = get_client()
+        if self._session is not None and not self._session.closed:
+            try:
+                await self._session.close()
+            except Exception as e:
+                logger.warning(f"Error closing session: {e}")
+            finally:
+                # set to None even if closing failed!!!
+                # to prevent reusing a potentially corrupted session
+                self._session = None
+        self._session = get_client()
+
+    async def close(self):
+        """
+        Close the aiohttp session.
+        """
+        if self._session is not None and not self._session.closed:
+            try:
+                await self._session.close()
+            except Exception as e:
+                logger.warning(f"Error closing session: {e}")
+            finally:
+                self._session = None
 
     async def batch_send(
         self,
@@ -182,6 +203,9 @@ class Client:
         context_msg = f"{url=}, {model_name=}, {max_retries=}, {max_wait_sec=}"
         try:
             await self._ensure_session()
+            if not self._session:
+                raise aiohttp.ClientError
+
             async for attempt in AsyncRetrying(
                 stop=stop_after_attempt(max_retries),
                 wait=wait_exponential(
@@ -331,9 +355,3 @@ class Client:
             return StdResponse(
                 body=model.model_construct(), exception=e, client_response=client_resp
             )
-
-    async def close(self):
-        try:
-            await self._session.close()
-        except Exception:
-            pass
