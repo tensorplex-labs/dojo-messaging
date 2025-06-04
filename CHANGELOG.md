@@ -1,3 +1,19 @@
+## 🚀 v1.0.0 (2025-06-04)
+
+
+### ✨ Features
+
+- **add messaging layer** ([`515471e`](dojo-messaging/commit/515471e903b19eac05e6b2a69a937f63c2b2d4b4)) @jarvis8x7b
+
+### 🔧 Misc
+
+- **add gitignore** ([`9767482`](dojo-messaging/commit/976748274ab54cc4b4a26a3fd2246fd3650136f2)) @jarvis8x7b
+- **add semantic release** ([`64294f1`](dojo-messaging/commit/64294f1be2443ce79a40bd3f1ad88525e8ed1c10)) @jarvis8x7b
+- **configure semver** ([`fe1a167`](dojo-messaging/commit/fe1a16731f33e672c7342e4c5ac0e940d90f2b00)) @jarvis8x7b
+- **loosen kami-client requirements** ([`1c86056`](dojo-messaging/commit/1c86056462e3b47e17c1c283bfa78faf68dd22e4)) @jarvis8x7b
+- **shift README** ([`705c8e3`](dojo-messaging/commit/705c8e33cc0c66a9f6613f09f5afa4ce2333db04)) @jarvis8x7b
+- **specify main** ([`ceb9e8a`](dojo-messaging/commit/ceb9e8ae3b5dd6447aac9b6252d0729ffe46e6c3)) @jarvis8x7b
+
 ## 🚀 v0.1.9 (2025-06-04)
 
 
