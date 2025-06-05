@@ -1,3 +1,10 @@
+## 🚀 v1.0.6 (2025-06-05)
+
+
+### 🔧 Misc
+
+- **pypi trigger on push** ([`3edcf24`](dojo-messaging/commit/3edcf245232af95691eab994a0f6e04c190133ab)) @jarvis8x7b
+
 ## 🚀 v1.0.5 (2025-06-05)
 
 
