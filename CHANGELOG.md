@@ -1,3 +1,10 @@
+## 🚀 v1.0.9 (2025-06-05)
+
+
+### 🐛 Bug Fixes
+
+- **trusted publishing** ([`45dceb1`](dojo-messaging/commit/45dceb1cd4af346b6a5166225f541c36c3e8bd01)) @jarvis8x7b
+
 ## 🚀 v1.0.8 (2025-06-05)
 
 
