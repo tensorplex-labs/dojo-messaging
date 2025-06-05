@@ -1,3 +1,10 @@
+## 🚀 v1.0.10 (2025-06-05)
+
+
+### 🔧 Misc
+
+- **use kami pypi versioning** ([`671490a`](dojo-messaging/commit/671490a010f788fa699b419fcf20b222d92d0268)) @jarvis8x7b
+
 ## 🚀 v1.0.9 (2025-06-05)
 
 
