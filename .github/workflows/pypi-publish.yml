@@ -3,6 +3,9 @@ name: Publish to PyPI
 on:
   release:
     types: [published, released]
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
