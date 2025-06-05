@@ -3,8 +3,6 @@ name: Publish to PyPI
 on:
   release:
     types: [published]
-  push:
-    branches: [main]
 
 permissions:
   contents: read
@@ -14,8 +12,8 @@ jobs:
     name: Upload release to PyPI
     runs-on: ubuntu-latest
     environment:
-      name: ${{ github.event_name == 'release' && 'pypi' || 'testpypi' }}
-      url: ${{ github.event_name == 'release' && 'https://pypi.org/p/dojo-messaging' || 'https://test.pypi.org/p/dojo-messaging' }}
+      name: pypi
+      url: https://pypi.org/p/dojo-messaging
     permissions:
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
     steps:
@@ -40,4 +38,4 @@ jobs:
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
-        repository-url: ${{ github.event_name == 'push' && 'https://test.pypi.org/legacy/' || '' }}
+        password: ${{ secrets.PYPI_API_TOKEN }}
