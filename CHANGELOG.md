@@ -1,3 +1,10 @@
+## 🚀 v1.0.4 (2025-06-05)
+
+
+### 🔧 Misc
+
+- **remove comments from pyproject, publish to main pypi** ([`5c4af09`](dojo-messaging/commit/5c4af0973c981804d4742846422b10970d3b7104)) @jarvis8x7b
+
 ## 🚀 v1.0.3 (2025-06-05)
 
 
