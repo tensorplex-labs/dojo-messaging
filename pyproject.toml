@@ -4,10 +4,43 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dojo-messaging"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Messaging utilities for dojo applications"
 readme = "README.md"
 requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "jarvis8x7b", email = "jarvis@tensorplex.ai"}
+]
+[project.urls]
+"Homepage" = "https://github.com/pypa/dojo-messaging"
+"Bug Reports" = "https://github.com/tensorplex-labs/dojo-messaging/issues"
+"Source" = "https://github.com/tensorplex-labs/dojo-messaging"
+classifiers = [
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 3 - Alpha",
+
+  # Indicate who your project is intended for
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+
+  # Pick your license as you wish
+  "License :: OSI Approved :: MIT License",
+
+  # Specify the Python versions you support here. In particular, ensure
+  # that you indicate you support Python 3. These classifiers are *not*
+  # checked by "pip install". See instead "requires-python" key in this file.
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+keywords = ["messaging", "dojo", "async"]
 dependencies = [
     "aiohttp~=3.10.11",
     "httpx~=0.27.0",
@@ -32,4 +65,8 @@ dev = [
 where = ["."]
 include = ["messaging*"]
 
+[tool.setuptools_scm]
+version_scheme = "only-version"
+local_scheme = "no-local-version"
+tag_regex = "^v(?P<scm_version>\\d+\\.\\d+\\.\\d+)"
 
