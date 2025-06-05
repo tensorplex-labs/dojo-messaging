@@ -8,10 +8,8 @@ dynamic = ["version"]
 description = "Messaging utilities for dojo applications"
 readme = "README.md"
 requires-python = ">=3.11"
-license = {text = "MIT"}
-authors = [
-    {name = "jarvis8x7b", email = "jarvis@tensorplex.ai"}
-]
+license = { text = "MIT" }
+authors = [{ name = "jarvis8x7b", email = "jarvis@tensorplex.ai" }]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -25,16 +23,16 @@ classifiers = [
 ]
 keywords = ["messaging", "dojo", "async"]
 dependencies = [
-    "aiohttp~=3.10.11",
-    "httpx~=0.27.0",
-    "loguru~=0.7.2",
-    "orjson~=3.10.16",
-    "pydantic~=2.8.2",
-    "python-dotenv",
-    "tenacity~=8.5.0",
-    "uvicorn~=0.22.0",
-    "zstandard~=0.23.0",
-    "kami-client @ git+https://github.com/tensorplex-labs/kami-client@v1.0.0"
+  "aiohttp~=3.10.11",
+  "httpx~=0.27.0",
+  "loguru~=0.7.2",
+  "orjson~=3.10.16",
+  "pydantic~=2.8.2",
+  "python-dotenv",
+  "tenacity~=8.5.0",
+  "uvicorn~=0.22.0",
+  "zstandard~=0.23.0",
+  "kami-client>=1.1.1",
 ]
 
 [project.urls]
@@ -43,11 +41,7 @@ dependencies = [
 "Source" = "https://github.com/tensorplex-labs/dojo-messaging"
 
 [project.optional-dependencies]
-dev = [
-    "pylint",
-    "ruff",
-    "pyright"
-]
+dev = ["pylint", "ruff", "pyright"]
 
 [tool.setuptools.packages.find]
 where = ["."]
@@ -57,4 +51,3 @@ include = ["messaging*"]
 version_scheme = "only-version"
 local_scheme = "no-local-version"
 tag_regex = "^v(?P<scm_version>\\d+\\.\\d+\\.\\d+)"
-
