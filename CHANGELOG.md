@@ -1,3 +1,10 @@
+## 🚀 v1.0.3 (2025-06-05)
+
+
+### 🔧 Misc
+
+- **publish to pypi on release** ([`422f47c`](dojo-messaging/commit/422f47cd5b8de2df27d277dc039ae84d7c73376c)) @jarvis8x7b
+
 ## 🚀 v1.0.2 (2025-06-04)
 
 
