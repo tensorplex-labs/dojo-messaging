@@ -1,3 +1,10 @@
+## 🚀 v1.0.7 (2025-06-05)
+
+
+### 🐛 Bug Fixes
+
+- **pyproject.toml ordering** ([`0a8b60c`](dojo-messaging/commit/0a8b60c62738a0aed75715d7264e6769672256ec)) @jarvis8x7b
+
 ## 🚀 v1.0.6 (2025-06-05)
 
 
