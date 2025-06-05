@@ -1,3 +1,10 @@
+## 🚀 v1.0.5 (2025-06-05)
+
+
+### 🐛 Bug Fixes
+
+- **pypi listen for more events** ([`95aa60d`](dojo-messaging/commit/95aa60d134b5845cab93d84ffdfa82f8ad3adae0)) @jarvis8x7b
+
 ## 🚀 v1.0.4 (2025-06-05)
 
 
