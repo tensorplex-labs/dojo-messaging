@@ -1,3 +1,10 @@
+## 🚀 v1.0.8 (2025-06-05)
+
+
+### 🐛 Bug Fixes
+
+- **pyproject.toml** ([`2550019`](dojo-messaging/commit/25500199d801c603c7bea9883049144efecca499)) @jarvis8x7b
+
 ## 🚀 v1.0.7 (2025-06-05)
 
 
