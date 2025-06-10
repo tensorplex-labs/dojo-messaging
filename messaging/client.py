@@ -54,14 +54,17 @@ def _build_url(url: str, model: BaseModel, protocol: str = "http") -> str:
 
 async def _log_context(response: StdResponse[PydanticModel]) -> None:
     if response.exception:
-        logger.error(f"Error due to exception: {response.exception}")
+        logger.trace(f"Error due to exception: {response.exception}")
     elif response.error:
-        logger.error(f"Error due to error: {response.error}")
+        url = ""
+        if response.client_response:
+            url = f"at URL: {response.client_response.url}"
+        logger.error(f"Error from server: {url} {response.error}")
     else:
         client_response = response.client_response
         if client_response and client_response.status != http.HTTPStatus.OK:
             logger.error(
-                f"NOT OK, HTTP status: {client_response.status}, text: {await client_response.text()} error: {response.error if response else ''}, metadata: {response.metadata if response else ''}"
+                f"NOT OK, received HTTP status: {client_response.status}, text: {await client_response.text()} error: {response.error if response else ''}, metadata: {response.metadata if response else ''}"
             )
 
 
@@ -224,7 +227,7 @@ class Client:
                                 client_resp.headers.get("content-encoding", "").lower()
                                 == "zstd"
                             ):
-                                logger.info(
+                                logger.debug(
                                     f"Attempting zstd decoding for {model_name}"
                                 )
                                 response_bytes = await client_resp.read()
@@ -285,7 +288,7 @@ class Client:
                                     )
                             else:
                                 logger.warning(
-                                    "Response body is empty, returning empty model"
+                                    "Response body is empty, skipped parsing."
                                 )
                                 return StdResponse(
                                     body=model.model_construct(),
@@ -320,10 +323,10 @@ class Client:
             )
 
         except RetryError as e:
-            logger.error(
+            logger.trace(
                 f"All retries to {url} for {model_name} with {max_retries=}, {max_wait_sec=} were exhausted"
             )
-            logger.error(f"Final exception: {e.last_attempt.exception()}")
+            logger.trace(f"Final exception: {e.last_attempt.exception()}")
             return StdResponse(
                 body=model.model_construct(), exception=e, client_response=client_resp
             )
