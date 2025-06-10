@@ -1,3 +1,12 @@
+## 🚀 v1.0.11 (2025-06-10)
+
+
+- **Merge pull request #1 from tensorplex-labs/chore/logging** ([`b945e49`](dojo-messaging/commit/b945e49e712f13e50d509bf55dd02e55f816c8f7)) ([#1](dojo-messaging/issues/1)) @jarvis8x7b
+
+### 🔧 Misc
+
+- **update logging** ([`00c6a61`](dojo-messaging/commit/00c6a61f5ffc78124a443de6a03820a81d043f26)) @jarvis8x7b
+
 ## 🚀 v1.0.10 (2025-06-05)
 
 
