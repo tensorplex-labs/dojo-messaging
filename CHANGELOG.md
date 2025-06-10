@@ -1,3 +1,10 @@
+## 🚀 v1.0.12 (2025-06-10)
+
+
+### 🐛 Bug Fixes
+
+- **pypi version lagging behind** ([`21c7690`](dojo-messaging/commit/21c7690e260ebceaa32992e192cd6fd63f398ea9)) @jarvis8x7b
+
 ## 🚀 v1.0.11 (2025-06-10)
 
 
