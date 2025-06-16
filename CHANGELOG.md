@@ -1,3 +1,14 @@
+## 🚀 v1.0.14-rc.1 (2025-06-16)
+
+
+### 🐛 Bug Fixes
+
+- **pypi publishing, enable release candidate** ([`3549788`](dojo-messaging/commit/354978849e97494cf88ddfe119a5010e262a96b3)) @jarvis8x7b
+
+### 🔧 Misc
+
+- **pypi publish on tag regex** ([`d486a3d`](dojo-messaging/commit/d486a3d597620991db71171e41d1f79ea7cba9e4)) @jarvis8x7b
+
 ## 🚀 v1.0.13 (2025-06-16)
 
 
