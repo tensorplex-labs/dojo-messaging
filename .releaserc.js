@@ -1,6 +1,19 @@
 
+const currentBranch = process.env.GITHUB_REF_NAME || process.env.BRANCH_NAME || '';
+const isPrereleaseBranch = ['staging', 'prerelease', 'develop', 'dev'].includes(currentBranch);
+
 module.exports = {
-  branches: ["main"],
+  branches: ["main",
+    {
+      name: 'staging',
+      prerelease: 'rc',        // Release candidates: 1.0.0-rc.1, 1.0.0-rc.2
+    },
+    {
+      name: 'develop',
+      prerelease: 'beta',      // Beta releases: 1.0.0-beta.1
+    }
+
+  ],
   plugins: [
     [
       "@semantic-release/commit-analyzer",
@@ -123,17 +136,20 @@ module.exports = {
         },
       },
     ],
-    [
-      "@semantic-release/changelog",
-      {
-        changelogFile: "CHANGELOG.md",
-      },
-    ],
+    // Only include changelog plugin for main branch (skip for prerelease branches)
+    ...(isPrereleaseBranch ? [] : [
+      [
+        "@semantic-release/changelog",
+        {
+          changelogFile: "CHANGELOG.md",
+        },
+      ]
+    ]),
     "@semantic-release/github",
     [
       "@semantic-release/git",
       {
-        assets: ["CHANGELOG.md", "package.json"],
+        assets: isPrereleaseBranch ? ["package.json"] : ["CHANGELOG.md", "package.json"],
         message: "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
       },
     ],
