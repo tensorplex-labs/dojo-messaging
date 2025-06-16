@@ -1,3 +1,10 @@
+## 🚀 v1.0.13 (2025-06-16)
+
+
+### 🐛 Bug Fixes
+
+- **pypi publishing** ([`641de78`](dojo-messaging/commit/641de78a4bccba58d8871943c032d445a88cadcf)) @jarvis8x7b
+
 ## 🚀 v1.0.12 (2025-06-10)
 
 
