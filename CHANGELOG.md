@@ -1,3 +1,10 @@
+## 🚀 v1.0.14-rc.3 (2025-06-16)
+
+
+### 🔧 Misc
+
+- **remove setuptools dep, capture version output** ([`4d2d4b3`](dojo-messaging/commit/4d2d4b3611fd7b5a746ef855a48b93661f0c5d3b)) @jarvis8x7b
+
 ## 🚀 v1.0.14-rc.2 (2025-06-16)
 
 
