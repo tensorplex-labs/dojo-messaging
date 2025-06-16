@@ -50,4 +50,4 @@ include = ["messaging*"]
 [tool.setuptools_scm]
 version_scheme = "only-version"
 local_scheme = "no-local-version"
-tag_regex = "^v(?P<scm_version>\\d+\\.\\d+\\.\\d+)"
+tag_regex = "^v?(?P<scm_version>\\d+\\.\\d+\\.\\d+(?:-\\w+\\.\\d+)?)"
