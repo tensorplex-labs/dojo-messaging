@@ -1,3 +1,10 @@
+## 🚀 v1.0.14-rc.4 (2025-06-16)
+
+
+### 🐛 Bug Fixes
+
+- **regex for setuptools to grab rc/beta** ([`a2c7fec`](dojo-messaging/commit/a2c7fecc19ec643fdd4536149c38a06f9e2972c6)) @jarvis8x7b
+
 ## 🚀 v1.0.14-rc.3 (2025-06-16)
 
 
