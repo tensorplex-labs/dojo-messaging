@@ -1,3 +1,10 @@
+## 🚀 v1.0.14-rc.2 (2025-06-16)
+
+
+### 🔧 Misc
+
+- **simplify release regex** ([`8ddd1b6`](dojo-messaging/commit/8ddd1b6a0256520a74fa2f1af1c3ffe450dcdcf0)) @jarvis8x7b
+
 ## 🚀 v1.0.14-rc.1 (2025-06-16)
 
 
