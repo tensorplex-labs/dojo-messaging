@@ -1,3 +1,24 @@
+## 🚀 v1.0.15 (2025-06-16)
+
+
+- **Merge pull request #2 from tensorplex-labs/staging** ([`6a9d3e7`](dojo-messaging/commit/6a9d3e710573da3210b0238120f43ac8d0e41a85)) ([#2](dojo-messaging/issues/2)) @jarvis8x7b
+- **Merge remote-tracking branch 'origin/main' into staging** ([`9b9a29e`](dojo-messaging/commit/9b9a29e3a9f3ce7644eb560b9c2fd25e804afdd6)) @jarvis8x7b
+
+### 🐛 Bug Fixes
+
+- **pypi publishing, enable release candidate** ([`3549788`](dojo-messaging/commit/354978849e97494cf88ddfe119a5010e262a96b3)) @jarvis8x7b
+- **regex for setuptools to grab rc/beta** ([`a2c7fec`](dojo-messaging/commit/a2c7fecc19ec643fdd4536149c38a06f9e2972c6)) @jarvis8x7b
+
+### 🔧 Misc
+
+- **ignore changelog for prerelease/beta versions** ([`13f1dfe`](dojo-messaging/commit/13f1dfe8bd88727d792f32831c8acc1bfef65b60)) @jarvis8x7b
+- **1.0.14-rc.1 [skip ci]** ([`a4f39f3`](dojo-messaging/commit/a4f39f3ada532d9ace78455699f7d40ec3f8e0a6)) @semantic-release-bot
+- **1.0.14-rc.2 [skip ci]** ([`b14b388`](dojo-messaging/commit/b14b38808967fa49f5aded606c1a1bb5c09b444f)) @semantic-release-bot
+- **1.0.14-rc.3 [skip ci]** ([`134bb2e`](dojo-messaging/commit/134bb2e66e64237421fcb19535e6df9166764d6d)) @semantic-release-bot
+- **1.0.14-rc.4 [skip ci]** ([`76d5d8e`](dojo-messaging/commit/76d5d8e9930088fbc3c57458bde2f7431a6361dc)) @semantic-release-bot
+- **remove setuptools dep, capture version output** ([`4d2d4b3`](dojo-messaging/commit/4d2d4b3611fd7b5a746ef855a48b93661f0c5d3b)) @jarvis8x7b
+- **simplify release regex** ([`8ddd1b6`](dojo-messaging/commit/8ddd1b6a0256520a74fa2f1af1c3ffe450dcdcf0)) @jarvis8x7b
+
 ## 🚀 v1.0.14 (2025-06-16)
 
 
