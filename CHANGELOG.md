@@ -1,30 +1,5 @@
-## 🚀 v1.0.14-rc.4 (2025-06-16)
+## 🚀 v1.0.14 (2025-06-16)
 
-
-### 🐛 Bug Fixes
-
-- **regex for setuptools to grab rc/beta** ([`a2c7fec`](dojo-messaging/commit/a2c7fecc19ec643fdd4536149c38a06f9e2972c6)) @jarvis8x7b
-
-## 🚀 v1.0.14-rc.3 (2025-06-16)
-
-
-### 🔧 Misc
-
-- **remove setuptools dep, capture version output** ([`4d2d4b3`](dojo-messaging/commit/4d2d4b3611fd7b5a746ef855a48b93661f0c5d3b)) @jarvis8x7b
-
-## 🚀 v1.0.14-rc.2 (2025-06-16)
-
-
-### 🔧 Misc
-
-- **simplify release regex** ([`8ddd1b6`](dojo-messaging/commit/8ddd1b6a0256520a74fa2f1af1c3ffe450dcdcf0)) @jarvis8x7b
-
-## 🚀 v1.0.14-rc.1 (2025-06-16)
-
-
-### 🐛 Bug Fixes
-
-- **pypi publishing, enable release candidate** ([`3549788`](dojo-messaging/commit/354978849e97494cf88ddfe119a5010e262a96b3)) @jarvis8x7b
 
 ### 🔧 Misc
 
