@@ -1,3 +1,10 @@
+## 🚀 v1.0.14 (2025-06-16)
+
+
+### 🔧 Misc
+
+- **pypi publish on tag regex** ([`d486a3d`](dojo-messaging/commit/d486a3d597620991db71171e41d1f79ea7cba9e4)) @jarvis8x7b
+
 ## 🚀 v1.0.13 (2025-06-16)
 
 
