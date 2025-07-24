@@ -17,16 +17,15 @@ from tenacity import (
     wait_exponential,
 )
 
-from .utils import retry_log
-
 from .types import (
-    HOTKEY_HEADER,
     MESSAGE_HEADER,
     SIGNATURE_HEADER,
+    SIGNED_BY_HEADER,
+    SIGNED_FOR_HEADER,
     PydanticModel,
     StdResponse,
 )
-from .utils import encode_body
+from .utils import encode_body, retry_log
 
 
 def get_client(conn_limit: int = None, limit_per_host: int = None) -> ClientSession:  # type: ignore[assignment]
@@ -84,19 +83,21 @@ class Client:
 
     async def _build_headers(
         self,
+        target_hotkey: str,
         include_compression: bool = True,
         message: str = None,  # type: ignore[assignment]
     ) -> dict[str, str]:
         if not message:
             message: str = (
-                f"I solemnly swear that I am up to some good. Hotkey: {self._hotkey}"
+                f"I solemnly swear that I am up to some good. Hotkey: {self._hotkey}:{target_hotkey}"
             )
 
         signature: str = await self._kami.sign_message(message)
         headers: dict[str, str] = {
             "content-type": "application/json",
             SIGNATURE_HEADER: signature,
-            HOTKEY_HEADER: self._hotkey,
+            SIGNED_BY_HEADER: self._hotkey,
+            SIGNED_FOR_HEADER: target_hotkey,
             MESSAGE_HEADER: message,
         }
         if include_compression:
@@ -113,6 +114,7 @@ class Client:
         self,
         urls: list[str],
         models: list[PydanticModel],
+        target_hotkeys: list[str],
         semaphore: asyncio.BoundedSemaphore | None = None,
         **kwargs: Any,
     ) -> Sequence[StdResponse[PydanticModel]]:
@@ -148,6 +150,13 @@ class Client:
         responses = await asyncio.gather(
             *[_send_with_semaphore(url, model) for url, model in zip(urls, models)],
         )
+
+        tasks = [
+            self.send(url, model, target_hotkey=target_hotkey, **kwargs)
+            for url, model, target_hotkey in zip(urls, models, target_hotkeys)
+        ]
+
+        responses = await asyncio.gather(*tasks)
         for r in responses:
             await _log_context(r)
 
@@ -157,6 +166,7 @@ class Client:
         self,
         url: str,
         model: PydanticModel,
+        target_hotkey: str,
         timeout_sec: int = 10,
         max_retries: int = 2,
         max_wait_sec: int = 4,
@@ -197,7 +207,8 @@ class Client:
 
                     if enable_preflight:
                         _head_headers = await self._build_headers(
-                            include_compression=False
+                            include_compression=False,
+                            target_hotkey=target_hotkey
                         )
                         async with self._session.head(
                             target_url,
@@ -207,7 +218,7 @@ class Client:
                             head_resp.raise_for_status()
                             logger.debug(f"HEAD preflight successful for {target_url}")
 
-                    _headers = await self._build_headers()
+                    _headers = await self._build_headers(target_hotkey=target_hotkey)
                     payload = encode_body(model, _headers)
                     async with self._session.post(
                         target_url,
@@ -333,6 +344,15 @@ class Client:
         except (Exception, BaseException) as e:
             return StdResponse(
                 body=model.model_construct(), exception=e, client_response=client_resp
+            )
+
+    async def close(self):
+        try:
+            await self._session.close()
+        except Exception:
+            pass
+        except Exception:
+            pass
             )
 
     async def close(self):

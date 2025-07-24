@@ -1,7 +1,6 @@
 import http
 from typing import Awaitable, Callable
 
-from starlette.types import ASGIApp
 import zstandard as zstd
 from fastapi import Request, Response
 from fastapi.responses import ORJSONResponse
@@ -9,12 +8,10 @@ from kami import KamiClient
 from loguru import logger
 from starlette.concurrency import iterate_in_threadpool
 from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.types import ASGIApp
 
-from .types import HOTKEY_HEADER, MESSAGE_HEADER, SIGNATURE_HEADER
-from .utils import (
-    create_response,
-    decode_body,
-)
+from .types import MESSAGE_HEADER, SIGNATURE_HEADER, SIGNED_BY_HEADER
+from .utils import create_response, decode_body
 
 compressor = zstd.ZstdCompressor(level=3)
 
@@ -40,16 +37,16 @@ class SignatureMiddleware(BaseHTTPMiddleware):
             return await call_next(request)
 
         signature = request.headers.get(SIGNATURE_HEADER, "")
-        hotkey = request.headers.get(HOTKEY_HEADER, "")
+        sender_hotkey = request.headers.get(SIGNED_BY_HEADER, "")
         message = request.headers.get(MESSAGE_HEADER, "")
-        if not hotkey or not signature or not message:
+        if not sender_hotkey or not signature or not message:
             message = f"{http.HTTPStatus(400).phrase}, missing \
-                    headers, expected: {SIGNATURE_HEADER}, {HOTKEY_HEADER}, {MESSAGE_HEADER}, \
-                    got: {hotkey=}, {signature=}, {message=}"
+                    headers, expected: {SIGNATURE_HEADER}, {SIGNED_BY_HEADER}, {MESSAGE_HEADER}, \
+                    got: {signature=}, {sender_hotkey=}, {message=}"
             return create_response(body={}, status_code=400, error=message)
 
         if not await self.kami.verify(
-            hotkey=hotkey, message=message, signature=signature
+            hotkey=sender_hotkey, message=message, signature=signature
         ):
             return create_response(
                 body={},

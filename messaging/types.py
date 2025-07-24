@@ -12,8 +12,10 @@ PydanticModel = TypeVar("PydanticModel", bound=BaseModel)
 ServerHandlerFunc: TypeAlias = Callable[[Request, PydanticModel], Awaitable[Any]]
 
 SIGNATURE_HEADER = "x-signature"
-HOTKEY_HEADER = "x-hotkey"
 MESSAGE_HEADER = "x-message"
+SIGNED_BY_HEADER = "x-signed-by"
+SIGNED_FOR_HEADER = "x-signed-for"
+
 
 
 class StdResponse(BaseModel, Generic[PydanticModel]):

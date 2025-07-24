@@ -3,7 +3,13 @@ from .client import Client, get_client
 from .exceptions import InvalidSignatureException
 from .middleware import SignatureMiddleware, ZstdMiddleware
 from .server import Request, Server
-from .types import HOTKEY_HEADER, PydanticModel, ServerHandlerFunc, StdResponse
+from .types import (
+    SIGNED_BY_HEADER,
+    SIGNED_FOR_HEADER,
+    PydanticModel,
+    ServerHandlerFunc,
+    StdResponse,
+)
 from .utils import extract_headers
 
 __all__ = [
@@ -14,7 +20,8 @@ __all__ = [
     "StdResponse",
     "Request",
     "PydanticModel",
-    "HOTKEY_HEADER",
+    "SIGNED_BY_HEADER",
+    "SIGNED_FOR_HEADER",
     "ServerHandlerFunc",
     "ZstdMiddleware",
     "SignatureMiddleware",
